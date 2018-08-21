@@ -1,0 +1,72 @@
+
+/**********构造函数**********/
+class dayofyear {
+public:
+	dayofyear(int M, int D,int W);
+	void input();
+	void output();
+	void set(int newmonth, int newday);
+	int getmonth();
+	int getday();
+	//double difference(dayofyear today, dayofyear bytebirthday);
+	dayofyear();
+private:
+	int month;
+	int day;
+
+};
+
+int main() {
+	dayofyear today(0,2,1), bytebirthday(0,2,1);
+	dayofyear test;
+	//cout << "enter today date:";
+	//today.input();
+
+	cout << "today is:";
+	today.output();
+	bytebirthday.set(9,17);
+	cout << "byte birthday is:";
+	bytebirthday.output();
+	if (today.getmonth() == bytebirthday.getmonth() && today.getday() == bytebirthday.getday())
+		cout << "happy birthday";
+	else
+		cout << "next time bye" << endl;
+	bytebirthday = today;
+	test.input( );
+	test.output();
+	
+	return 0;
+}
+dayofyear::dayofyear(){}
+dayofyear::dayofyear(int M, int D,int W) :
+month(M),day(D+W)
+{
+
+}
+void dayofyear::input() {
+	cout << "enter month";
+		cin >> month;
+	cout << "enter day";
+	cin >> day;
+
+}
+void dayofyear::output() {
+	cout << "month is:";
+	cout << month;
+	cout << "day is:";
+	cout << day;
+}
+void dayofyear::set(int newmonth, int newday) {
+	month = newmonth;
+	day = newday;
+}
+int dayofyear::getmonth() {
+	return month;
+}
+int dayofyear::getday() {
+	return day;
+}
+
+/*double difference() {
+	return (dayofyear.getmonth() - bytebirthday.getmonth();
+}*/
