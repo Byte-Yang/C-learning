@@ -1,0 +1,365 @@
+// ConsoleApplication5.cpp: 定义控制台应用程序的入口点。
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+using namespace std;
+	/*int a, b;
+		cout << "put two interger:" << endl;
+		cin >> a >> b;
+		if (a != b) 
+			if (a < b)
+				cout << b << endl;
+			else
+				cout << a << endl;
+		else
+			cout << "a = b" << endl;*/
+	//反转输出
+	//int sum, a=0;//这里sum没有初始化只有a初始化;a=0必须要有否则 a = a * 10 + sum % 10;无法计算
+	//			//而sum有初始化值cin>>sum
+	//cout << "enter some digital,i will reverse it :";
+	//cin >> sum; 
+	//do {
+
+	//	a =a*10+ sum % 10;
+	//	sum /= 10;
+	//} while (sum != 0);
+	//	cout << a << endl;
+	//cout << "enter a integer:";
+	//cin >> n;
+	//for (int k = 1; k < n; k++)//k必须重新初始化
+	//	if (n%k == 0)
+	//		cout << k << ' ';
+	//	
+	
+	//int n, i = 0, j = 0;
+	//cout << "enter integers(end by 0)";
+	//cin >> n;
+	//while (n != 0) {
+	//	if (n > 0)i++;
+	//	else
+	//		j++;
+	//	cin >> n;//代码精髓,while结束后再重新输入一次n;
+	//}
+	//cout << "number of positive inters:" << i << endl;
+	//cout << "number of negative inters:" << j << endl;
+
+//double power(double a, int b) {
+//	double val = 1.0;
+//	while (b--) { // --b和b--,while(--b)是 先减少1再判断它是否==0,先使用b,再-1
+//				//while(b--)是先判断是否==0再减少1 先-1b,再使用b
+//	
+//		val *= a;
+//
+//	}
+//
+//	return val;
+//}
+//int main(){
+//	double value=0;//value做为左值必须要初始化********
+//	cout << "enter your 8 bit number:" << endl;
+//	for (int i = 7; i >= 0; i--) { //**********
+//		char ch;
+//		cin >> ch;
+//		if (ch == '1')
+//			value += power(2, i);
+//	}
+//	cout << "10 bit is :" << value << endl;
+//	return 0;
+//	}
+
+
+/*****回文*****/
+//int fun(int m);
+//int main() {
+//	int num;
+//	for (int m = 11; m <= 999; m++)
+//	{
+//		if (fun(m)&&fun(m*m)&&fun(m*m*m)) {
+//			
+//			cout << m << endl;
+//		}
+//	}
+//
+//	return 0;
+//
+//}
+//int fun(int n){
+// //**int fun(int i) {//起始数字为n,保留目的为后面和m比较是否相等
+//	int flag = 0;
+//	int i=n;
+//	int val = 0;
+//		do {
+//			val = val * 10 + i % 10;
+//				i = i / 10;//会改变的计数值为i;
+//		} while (i > 0);
+//		if (val == n)
+//			flag =1;
+//		return flag;
+//}
+
+/****递归*****/
+
+//int func(int n);
+//int main() {
+//	int n;
+//	cout << "enter integer:" << endl;
+//	cin>>n;
+//
+//	int m=func(n);	//*****多设置一个量m,下面cout时候不需要再算一次 func(n)
+//		cout << n << "!=" << m << endl;//用m而不是func(n)
+//
+//}
+//int func(int n) {
+//	if (n == 0)
+//		return 1;
+//	else
+//		return func(n - 1)*n;
+//
+//template<class T>
+//T sumofsquare(T x, T y) {
+//	return x * x + y * y;
+//}
+//int main() {
+//	int a, b;
+//	cin >> a >> b ;
+//	cout <<sumofsquare(a, b)<<endl;
+//	double x, y;
+//	cin >> x >> y;
+//	cout << sumofsquare(x,y) << endl;
+//}
+
+/******fibonacci数列*********/
+//int fib(int n) {//如果表达式1为真则执行语句1,如果表达式1
+//				//为假则执行语句2若都为假则执行else
+//	/*if (n == 1|| n == 2) {
+//		return 1;
+//	}
+//	*/
+//	if (n == 1) {
+//		return 1;
+//	}
+//	else if (n == 2) {
+//		return 1;
+//	}
+//	else
+//		return fib(n - 1) + fib(n - 2);
+//	
+//}
+//int main() {
+//	int n = 6;
+//	cout << fib(n) << endl;
+//	return 0;
+//}
+
+/********时钟************/
+
+
+/* 重载函数*/
+//	struct Restructor {
+//		double x;
+//		double y;
+//
+//	};
+//	Restructor operator*(Restructor a, Restructor b) {
+//		Restructor r;
+//		r.x = a.x * b.x;
+//		r.y = a.y * b.y;
+//
+//	
+//	return r;
+//}
+//
+//	int main() {
+//		
+//		Restructor j,k, m;
+//		k.x = 0;
+//		k.y = 3;	
+//		j.x = 1;
+//		j.y = 3;
+//		m = k*j;
+//		cout << m.x <<" "<< m.y << endl;
+//		return 0;
+//	
+////	}
+////
+//	struct Restructor {
+//		double x;
+//		double y;
+//
+//	};
+//	ostream& operator <<(ostream& out, Restructor a) {
+//		out << a.x <<',' << a.y << endl;
+//		return out;
+//	}
+//	int main() {
+//		Restructor a;
+//		a.x = 2;
+//		a.y = 2;
+//		cout << a << endl;
+//		return 0;
+
+
+  //*55类的定义*/
+//
+//class Clock {//typedef?X  struct& class区别?
+//
+//public:
+//	Clock(int H, int M, int S);
+//	void settime(int H = 0, int M = 0, int S = 0);//如果不给参数值则用默认
+//	void showtime();
+//private:
+//	int hour = 1, minute, second;//类内初始值,赋值=0没效果,仍需要myclock.settime()赋值三个
+//};
+//Clock::Clock(int H, int M, int S) :
+//	hour(H), minute(M), second(S) {
+//
+//}
+//void Clock::settime(int H, int M, int S) {
+//	hour = H;
+//	minute = M;
+//	second = S;
+//}
+//
+//
+//void Clock::showtime() {
+//	cout << hour << ":" << minute << ":" << second << endl;
+//
+//}
+//
+//int main() {
+//	Clock myClock;
+//	Clock c(0, 0, 0);
+//	myClock.settime();
+//	myClock.showtime();
+//	cout << "hour=" << hour << endl;
+//	return 0;
+//}
+//
+//class Clock {//typedef?X  struct& class区别?
+//
+//public:
+//	Clock(int H, int M, int S = 2);
+//	Clock();
+//	//void settime(int H = 0, int M = 0, int S = 0);//如果不给参数值则用默认
+//	void showtime();
+//private:
+//	int hour , minute, second;//类内初始值,赋值=0没效果,仍需要myclock.settime()赋值三个
+//};
+//Clock::Clock(int H, int M, int S) :
+//	hour(H), minute(M), second(S) {
+//}//不可在里面赋值否则为永久值
+//Clock::Clock() : hour(0), minute(0), second(0) {
+//
+//}
+///*
+//void Clock::settime(int H, int M, int S) {
+//	hour = H;
+//	minute = M;
+//	second = S;
+//}*/
+//
+//
+//void Clock::showtime() {
+//	cout << hour << ":" << minute << ":" << second << endl;
+//
+//}
+//
+//int main() {
+//
+//	Clock myClock(1,1,1);
+//	Clock c2;
+//	myClock.showtime();
+//	c2.showtime()
+//	return 0;
+//}
+
+/*********************注解***********************************
+class Clock {
+
+public:
+	void settime(int H , int M , int S );//如果不给参数值则用默认
+等价于
+	Clock(int H, int M, int S);
+private:
+	int hour = 1, minute, second;}
+
+	void Clock::settime(int H, int M, int S) {
+		hour = H;
+		minute = M;
+		second = S;
+		}
+	==
+	Clock::Clock(int H, int M, int S) :
+	hour(H), minute(M), second(S) {
+	}/*
+
+int main{
+
+
+	Clock myClock(0, 0, 0);
+	==
+	Clock myClock;
+	myClock.settime(0,0,0);
+
+	;*/
+//#include<cmath>
+//class Point{
+//public:
+//	Point(int x=0,int y=0) :x(0), y(0) {
+//
+//	}
+//	int getX() { return x; }
+//	int	getY() { return y; }
+//	friend float dist(Point &A, Point&B);
+//private:
+//	int x, y;
+//}; 
+//float dist(Point &A, Point&B) {
+//	double x = A.x - B.x;
+//	double y = A.y - B.y;
+//	return (float)(sqrt(x*x + y * y));
+//
+//}
+//int main() {
+//	Point p1(5,2),p2(0,0);
+//		cout << "Distance is:" << dist(p1, p2) << endl;
+//	return 0;
+////}
+/*get 的使用,会接受空格回车*/
+//int main() {
+//	char c1, c2, c3,c4;
+//	cin.get(c1);
+//	cin.get(c2);
+//	cin.get(c3);
+//	cin.get(c4);
+//	cout << c1 << c2 <<c3 <<c4<< endl;
+////}
+
+
+// width & setw(5)区别
+//int main() {
+//	cout << '*';
+//	cout.width(5);
+//	cout << 0
+//		<< "*" << 123 << "*" << endl;
+//	cout << "*"<<setw(5) << 0
+//		<< "*" << 123 << "*" << endl;
+//}
+
+/*P229课后题
+int main() {
+	char next;
+	int count = 0;
+	cout << "Enter a number" << endl;
+	cin.get(next);
+	while (next != '\n')
+	{
+		if ((count % 2) == 0)
+		cout << next;
+		count++;
+		cin.get(next);
+	}
+}*/
