@@ -1,0 +1,44 @@
+/* 重载函数*/
+	struct Restructor {
+		double x;
+		double y;
+
+	};
+	Restructor operator*(Restructor a, Restructor b) {
+		Restructor r;
+		r.x = a.x * b.x;
+		r.y = a.y * b.y;
+
+	
+	return r;
+}
+
+	int main() {
+		
+		Restructor j,k, m;
+		k.x = 0;
+		k.y = 3;	
+		j.x = 1;
+		j.y = 3;
+		m = k*j;
+		cout << m.x <<" "<< m.y << endl;
+		return 0;
+	
+//	}
+//
+	struct Restructor {
+		double x;
+		double y;
+
+	};
+	ostream& operator <<(ostream& out, Restructor a) {
+		out << a.x <<',' << a.y << endl;
+		return out;
+	}
+	int main() {
+		Restructor a;
+		a.x = 2;
+		a.y = 2;
+		cout << a << endl;
+		return 0;
+
