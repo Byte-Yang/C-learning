@@ -1,0 +1,79 @@
+// ConsoleApplication15.cpp: 定义控制台应用程序的入口点。
+//
+
+#include "stdafx.h"
+
+
+
+#include <iostream>
+	using namespace std;
+
+	class Point {
+	public:
+		Point(){}
+		Point(int a,int b) {
+			x = a;
+			y = b;
+
+
+		}
+		void print() {
+			cout << x << "," << y << endl;
+
+		}
+	private:
+		int x;
+		int y;
+	};
+	class Circle {
+	/*错误一
+	public:
+		Circle(){}
+		Circle(int _r,int p) {
+			r=_r
+				p.
+		}*/
+
+	//错误二
+	//public:
+	//	Circle() {	}
+	//	Circle(int r,int x,int y):r(r),x(x),y(y) {
+	//}
+	//	Void print() {
+	//		cout << r << x << y << endl;
+	//	}
+	//private:
+	//	int r;
+	//	int x;
+	//	int y;
+	//};
+	public:
+		Circle() {	}
+		Circle(int r, int x, int y) :r(r), center(x,y) {
+		}
+		void setCircle(int _r,Point p) {
+			r = _r;
+			center = p;
+
+
+		}
+		void print() {
+			//cout << r << center.x << y << endl;
+			cout << "r=" << r << "xy=";
+			center.print();
+
+		/*	cout << "r=" << r << "xy="
+				<<center.print() << endl; 编译错误*/
+		}
+	private:
+		int r;
+		Point center;
+	};
+	int main() {
+		Point p(2, 1);
+		p.print();
+		Circle c;
+		c.print();
+		c.setCircle(1,p);
+		c.print();
+	}
