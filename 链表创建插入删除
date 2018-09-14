@@ -1,0 +1,87 @@
+// ConsoleApplication25.cpp: 定义控制台应用程序的入口点。
+//
+
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+typedef struct node {
+	int name;
+	int age;
+	struct node * next;//指向struct node指向的类型就是
+
+
+}student;
+student *createList(int n) {
+	
+
+	student *head = new student;//动态生成,头结点不存数据
+	student *pre = head;
+	for (int i = 0; i < n; i++) {
+		
+		student *p = new student;
+		printf("请输入第%d个学生的姓名和年龄:", i + 1);
+		cin >> p->name;
+		cin >> p->age;
+
+		pre->next = p;
+		pre = p;
+
+		p->next = NULL;
+
+	}
+	return head;
+}
+int    (student *head) {
+	student *p = head->next;
+	int cout = 0;
+	while (p != NULL) {
+		cout++;
+		p = p->next;
+	}return cout;
+}
+void insertElement(student *head, int index) {
+	//index要求结点长度个数,已知头结点?计算?length
+	if (index<0 || index>length(head)) {
+		throw"out of range";
+		student *pre = head;
+		for (int i = 0; i < index; i++) {
+			pre = pre->next;
+
+		}
+		student *p = new student;//构造新节点
+		cin >> p->name >> p->age  ;
+		p->next = pre->next;
+		pre->next = p;
+
+
+	}
+}
+
+void display(student*head) {
+	student*p = head;
+
+	while (p!=NULL) {
+		cout << p->name << p->age << endl;
+		p = p->next;
+	}
+}
+void removeElement(student *head, int index) {
+	if (index<0 || index>length(head) - 1)//找到结点的next删除
+		throw"out of range";
+	student *pre = head;
+	for (int i = 0; i < index; i++) {
+		pre = pre->next;
+	}
+	/*
+	student *p = new student;
+	p = pre->next;*/  //多创建一个new 等等多一步del
+	student *p = pre->next;
+	pre - next = p->next;//pre->next=pre->next->next;
+	delete p;//都要del哦!
+}
+int main() {
+	student *head= createList(5);
+	
+	display(head);
+	return 0;
+}
