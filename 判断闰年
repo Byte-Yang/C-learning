@@ -1,0 +1,62 @@
+// ConsoleApplication25.cpp: 定义控制台应用程序的入口点。
+//
+
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+
+class Data {
+private:
+	int year;
+	int month;
+	int day;
+public:
+	void setData(int y,int m,int d) {
+		year = y;
+		month = m;
+		day = d;
+	}
+	int numberofData();//第几天
+	bool isLeap(); //闰年
+	void printData();
+
+};
+int Data::numberofData() {
+	int a[12] = { 31,28,31,30,31,30,31,30,31,30,31,30 };
+	if (isLeap()) {
+		a[2] = 29;
+	}
+	int number = 0;
+	for (int i = 0; i < month; i++) {
+		number += a[i];
+
+	}
+	number  +=day;
+	return number;
+
+};//第几天
+bool Data::isLeap() {
+	//能被4整出,不能被100整出或者能被400整除
+	if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+		return true;
+	else return false;
+
+}//闰年
+
+
+
+
+void Data::printData()
+{
+	cout << year<< month  << day<<endl;
+}
+int main() {
+	Data data;
+	int y, m, d;
+	cin >> y >> m >> d;
+	data.setData(y, m, d);
+	data.printData();
+	cout << data.numberofData() << endl;
+	
+		return 0;
+}
