@@ -1,0 +1,108 @@
+// ConsoleApplication25.cpp: 定义控制台应用程序的入口点。
+//
+
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+typedef struct node {
+	char name [20];
+	int age;
+	struct node *next;
+
+}student;
+student *creatList(int N) {
+	student *head = new student;
+	head->next = NULL;//习惯
+	student *pre = head;//frg
+
+	for (int i = 0; i < N; i++) {
+		student *p = new student;
+		printf("请输入第%d个结点的name&age\n", i + 1);
+		cin >> p->name;
+		cin >> p->age;
+		//head->next = p;
+		pre->next = p;
+		pre = p;
+		p->next = NULL;//习惯
+	
+		
+	}
+	return head;
+
+
+}
+void display(student * head,int N) {
+	student *p = head->next;
+	for (int i = 0; i < N; i++) {
+		
+		cout << p->name << p->age <<" ->";
+		p = p->next;
+	}
+}
+void insertElement(student *head,int Y) {
+
+	/*student *pre = new student;
+	pre = head;*/
+	student *pre = head;
+
+	for (int i = 0; i < Y;i++) {
+		
+		pre =pre ->next;
+
+
+	}
+	student *p = new student;
+	printf( "请输入第%d个后面的新结点name&age\n", Y);
+	cin >> p->name >> p->age ;
+	p->next = pre->next;
+	pre->next = p;
+
+}
+void removeElement(student*head,int X) {
+	student *pre = head;
+
+	for (int i = 0; i < X-1; i++) {
+
+		pre = pre->next;
+
+
+	}
+	/*student*q = pre->next;
+	pre->next = q->next;*/
+	pre->next = pre->next->next;
+}
+void reverse(student *head) {
+	student *p, *q;
+	p = head->next;
+	head->next = NULL;
+	while (p) {
+		q = p;
+		p = p->next;
+
+		//head->next = q;
+		//q->next = head->next;
+
+		q->next = head->next;
+		head->next = q;
+
+
+	}
+}
+int main() {
+	//typedef N 5  记错了,,,
+	#define N 4
+#define Y 2
+#define X 3
+	student *head = creatList(N);
+	display(head, N);
+	insertElement(head, Y);
+	display(head, N+1);
+	removeElement(head, X);
+	cout << "删除第" << X<< "个元素" << endl;
+	display(head, N );
+
+	cout << "逆置"<< endl;
+	reverse(head);
+	display(head, N);
+	return 0;
+}
