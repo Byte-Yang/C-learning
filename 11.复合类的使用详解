@@ -1,0 +1,58 @@
+/*11.复合类的使用详解*/
+//class Point {
+//public:
+//	 Point();//没有返回值!
+//	 Point(int _x, int _y);
+//	void print();
+//
+//private:
+//	int x;
+//	int y;
+//
+//
+//};
+// Point::Point(){}
+// Point::Point(int _x, int _y) {
+//	x = _x;
+//	y = _y;
+//
+//}
+//void Point::print() {
+//	cout << x << "," << y << endl;
+//}/*center.print调用这里*/
+//class Circle {
+//public:
+//	Circle();
+//	Circle(int x, int y,int r);
+//	void setCircle(Point p, int r);
+//	void print();
+//private:
+//	int radius;
+//	Point center;//center 是Point类的一个对象 
+//
+//};
+//
+//Circle::Circle() {}
+//Circle::Circle(int x, int y, int r) :center(x, y), radius(r) { }
+////center 是Point类的一个对象 初始化必须center(x, y)
+////调用center构造函数初始化xy;例如Point p(3,5)对象名小括号就是调用构造函数
+//
+//
+//void Circle::setCircle(Point p, int r) {
+//	center = p;//center.x=p.x center.y=p.y
+//	radius = r;
+//
+//}
+//void Circle::print() {
+//	cout << "radius=" << radius << endl;
+//	center.print();//为什么不用center.x <<center.y?因为xy是私有的
+//
+//}
+//int main() {
+//	Point p ;
+//	p.print();
+//	Circle c;
+//	c.setCircle( p,1);
+//	c.print();
+//	return 0;
+//}
