@@ -1,0 +1,990 @@
+// ConsoleApplication25.cpp: 定义控制台应用程序的入口点。
+//
+
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+//typedef struct node {
+//	char name [20];
+//	int age;
+//	struct node *next;
+//
+//}student;
+//student *creatList(int N) {
+//	student *head = new student;
+//	head->next = NULL;//习惯
+//	student *pre = head;//frg
+//
+//	for (int i = 0; i < N; i++) {
+//		student *p = new student;
+//		printf("请输入第%d个结点的name&age\n", i + 1);
+//		cin >> p->name;
+//		cin >> p->age;
+//		//head->next = p;
+//		pre->next = p;
+//		pre = p;
+//		p->next = NULL;//习惯
+//	
+//		
+//	}
+//	return head;
+//
+//
+//}
+//void display(student * head,int N) {
+//	student *p = head->next;
+//	for (int i = 0; i < N; i++) {
+//		
+//		cout << p->name << p->age <<" ->";
+//		p = p->next;
+//	}
+//}
+//void insertElement(student *head,int Y) {
+//
+//	/*student *pre = new student;
+//	pre = head;*/
+//	student *pre = head;
+//
+//	for (int i = 0; i < Y;i++) {
+//		
+//		pre =pre ->next;
+//
+//
+//	}
+//	student *p = new student;
+//	printf( "请输入第%d个后面的新结点name&age\n", Y);
+//	cin >> p->name >> p->age ;
+//	p->next = pre->next;
+//	pre->next = p;
+//
+//}
+//void removeElement(student*head,int X) {
+//	student *pre = head;
+//
+//	for (int i = 0; i < X-1; i++) {
+//
+//		pre = pre->next;
+//
+//
+//	}
+//	/*student*q = pre->next;
+//	pre->next = q->next;*/
+//	pre->next = pre->next->next;
+//}
+//void reverse(student *head) {
+//	student *p, *q;
+//	p = head->next;
+//	head->next = NULL;
+//	while (p) {
+//		q = p;
+//		p = p->next;
+//
+//		//head->next = q;
+//		//q->next = head->next;
+//
+//		q->next = head->next;
+//		head->next = q;
+//
+//
+//	}
+//}
+//int main() {
+//	//typedef N 5  记错了,,,
+//	#define N 4
+//#define Y 2
+//#define X 3
+//	student *head = creatList(N);
+//	display(head, N);
+//	insertElement(head, Y);
+//	display(head, N+1);
+//	removeElement(head, X);
+//	cout << "删除第" << X<< "个元素" << endl;
+//	display(head, N );
+//
+//	cout << "逆置"<< endl;
+//	reverse(head);
+//	display(head, N);
+//	return 0;
+//}
+
+/*栈*/
+//#define SIZE 10
+//char x;
+//class stack {
+//public:
+//	void Push(char ch);
+//	char Pop();
+//
+//	stack() { tos = -1; }
+//private:
+//
+//	char stck[SIZE];
+//	int tos;
+//};
+//void  stack::Push(char ch) {
+//	if (tos == SIZE-1) {
+//		stck[++tos] = ch;
+//	}
+//
+//	else {
+//		cout << "\nStack is full.\n";
+//	}
+//
+//	}
+//
+//
+//char stack::Pop(){
+//	if (tos==-1)
+//	{
+//		return 0;
+//	}
+//	else {
+//		//x = this->stck[tos];
+//
+//		return stck[tos];
+//	}
+//
+//
+//}
+//
+//int main() {
+//	//stack *p=new stack;
+//	stack p;
+//	char da='a';
+//	p.Push(da);
+//
+//	char z=p.Pop();
+//	
+//	cout <<z<<endl;
+//		//delete p;
+//
+//}
+
+
+
+//#include <iostream>
+//using namespace std;
+//
+//int RemoveDuplates(int a[], int n){
+//	int newLen = 0, j = 0;
+//	for (int i = 0; i< n && j<n; i++){
+//		while (j<n && a[i] == a[j]){
+//			j++;
+//		}
+//		if (j > i + 1 && j < n){
+//			a[i + 1] = a[j];
+//		}
+//		newLen++;
+//		//cout<<a[i];
+//	}
+//	return newLen;
+//}
+//
+//
+//void main(){
+//	int n = 20;
+//	int *a = new int[n];
+//	for (int i = 0; i <n; i++)
+//	{
+//		scanf("%d", &a[i]);
+//	}
+//	
+//	int newLine = RemoveDuplates(a, n); //removeNum(a, n);
+//	//sort(a, a + n);
+//	for (int i = 0; i< newLine; i++)
+//	{
+//		cout << a[i] << ' ';
+//	}
+//	free(a);
+//	cout << endl;
+//}
+//#include <iostream>
+//#include <algorithm>
+//#include <iterator>
+//#include <vector>
+//#include <functional>
+//using namespace std;
+//
+//int main()
+//{
+//	vector<int>result;
+//	copy(istream_iterator<int>(cin), istream_iterator<int>(), back_inserter(result));
+//	result.erase(unique(result.begin(), result.end()), result.end());
+//	sort(result.begin(), result.end());
+//	copy(result.begin(), result.end(), ostream_iterator<int>(cout, " "));
+//	system("pause");
+//}
+#include <iostream>
+#include <algorithm>
+//using namespace std;
+///*
+//本题需要注意:
+//1.首先将输入的数组进行递增的排序，然后再删去重复的数字
+//2.排序时可以考虑直接使用sort也可以自己写一个快排或者冒泡
+//*/
+//int main () {
+//	int array[20];
+//	int number;
+//	for (int i = 0; i < 20; i++) {
+//		cout << "please input the numbers:";
+//		//cin >> number;
+//		array[i] = number;
+//	}//用过for循环输入20个数字到数组array中
+//	sort(array, array + 20 ); 
+//	int i, j, r = 0;//索引
+//	int b[20];
+//	for (i = 0; i < 20; i++)
+//	{
+//		for (j = 0; j < r; j++)
+//		{
+//			if (b[j] == b[i])break;
+//			if (j == r) {
+//				b[r] = b[i];
+//				r++;
+//			}
+//		}
+//	}
+//	for (int i = 0; i < r; i++)
+//	{
+//		cout << b[i] << endl;
+//
+//	}
+//
+//			return r;
+//		
+//	}
+///*11.复合类的使用详解*/
+//class Point {
+//public:
+//	 Point();//没有返回值!
+//	 Point(int _x, int _y);
+//	void print();
+//
+//private:
+//	int x;
+//	int y;
+//
+//
+//};
+// Point::Point(){}
+// Point::Point(int _x, int _y) {
+//	x = _x;
+//	y = _y;
+//
+//}
+//void Point::print() {
+//	cout << x << "," << y << endl;
+//}/*center.print调用这里*/
+//class Circle {
+//public:
+//	Circle();
+//	Circle(int x, int y,int r);
+//	void setCircle(Point p, int r);
+//	void print();
+//private:
+//	int radius;
+//	Point center;//center 是Point类的一个对象 
+//
+//};
+//
+//Circle::Circle() {}
+//Circle::Circle(int x, int y, int r) :center(x, y), radius(r) { }
+////center 是Point类的一个对象 初始化必须center(x, y)
+////调用center构造函数初始化xy;例如Point p(3,5)对象名小括号就是调用构造函数
+//
+//
+//void Circle::setCircle(Point p, int r) {
+//	center = p;//center.x=p.x center.y=p.y
+//	radius = r;
+//
+//}
+//void Circle::print() {
+//	cout << "radius=" << radius << endl;
+//	center.print();//为什么不用center.x <<center.y?因为xy是私有的
+//
+//}
+//int main() {
+//	Point p ;
+//	p.print();
+//	Circle c;
+//	c.setCircle( p,1);
+//	c.print();
+//	return 0;
+//}
+/*2013-10 类大汇总9.19 */
+//#define PI 3.14
+//#include<math.h>
+//class Point {
+//private:
+//	double x;
+//	double y;
+//public:
+//	Point (double i,double j):x(i),y(j){}
+//	void print()const {
+//		cout << x << ',' << y << endl;
+//	}
+//};
+//class Figure {
+//private:
+//	Point center;
+//public:
+//	Figure(double i=0,double j=0):center(i,j) {}
+//	Point &location() {
+//		return center;
+//
+//	}
+//	void move(Point p) {
+//		center = p;
+//		draw();
+//	}
+//
+//	//只声明不实现
+//	virtual void draw() = 0;//draw();在这条语句声明后才能定义
+//	virtual void rotate(double) = 0;
+//
+//
+//
+//};
+//class Circle  : public Figure {
+//private :
+//	double radius;
+//public:
+//	Circle(double i=0,double j=0,double r=0  ) :Figure (i,j),radius(r){}
+//	void draw() {//必须定义
+//		cout << "a circle with center ";
+//		location().print();
+//		cout << "and radius :" << radius << endl;
+//
+//	}
+//	void rotate(double) {
+//		cout << "no efferct\n";//必须定义
+//	}
+//};
+//class Square :public Figure {
+//private:
+//	double side;
+//	double angle;
+//public:
+//	Square(double i=0,double j=0,double d=0 ,double a=0 ):Figure(i,j),side (d),angle(a){}
+//	void draw() {
+//		cout << "a square with center"; location().print();
+//		cout << "side length:" << side
+//			<< "offset of angle:" << angle << endl;
+//
+//	}
+//	void rotate(double a ) {
+//		angle += a;
+//		cout << "offsize of angle :" << a << endl;
+//
+//	}
+//};
+//int main() {
+//	Circle c(1,2,3);
+//	Square s(2, 3, 4);
+//	Figure *f = &c;
+//	Figure &g = s;
+//	f->draw();
+//	f->move(Point(1, 1));
+//
+//		g.draw();
+//		g.rotate(1);
+//		g.move(Point(1, 1));
+//		return 0;
+//
+//}
+/*2013/10*/
+
+//#define PI 3.14
+//class Shape {
+//public:
+//	virtual double area() = 0;//double返回值而不是void
+//
+//};
+//class Circle: public Shape {
+//public:
+//	double  area() {
+//		return PI*radius*radius;
+//
+//	}
+//private:
+//	double radius;
+//
+//
+//};
+//class Square:public Shape {
+//private:
+//	double size;
+//public:
+//	double area() {
+//		return size * size;
+//
+//	}
+//
+//};
+//class Rectangle :public Shape {
+//	double length;
+//	double wide;
+//public:
+//	double area() {
+//		return length * wide;
+//
+//	}
+//};
+//class Triangle :public Shape {
+//	double hight;
+//	double width;
+//public:
+//	double area(){
+//		return   hight * width ;
+//
+//	}
+//};
+//int main() {
+//	Shape *p[4];
+//	Circle c;
+//
+//		Square s;
+//		Rectangle r;
+//		Triangle t;
+//		Rectangle; 
+//		p[0] = &c;
+//		p[1] = &s;
+//		p[2] = &t;
+//		p[3] = &r;
+//		
+//		int i;
+//		double a, sum = 0;
+//		for (i = 0; i<4; i++) {
+//			a = p[i]->area();
+//			sum += a;
+//			cout << "面积：" << a << "   ";
+//		}
+//		cout << "\n sum=" << sum << endl;
+//}
+
+/*2015*/
+//class Vehicle {
+//protected:
+//	int wheels;
+//	int weight;
+//
+//public:
+//	void setwheels(int n) {
+//		wheels = n;
+//
+//	}
+//	void setweight(int w) {
+//		weight = w;
+//		
+//	}
+//	int get_wheels() {
+//		return wheels;
+//	}
+//	int get_weight() {
+//		return weight;
+//
+//	}
+//	void show() {
+//		cout << "车轮" << wheels << "个" << endl;	
+//		cout << "重量" << weight << "公斤" << endl;
+//
+//	}
+//};
+//class Car :virtual public Vehicle {
+//private:
+//	int passenger_load;
+//public:
+//	void setpassenger_load(int p) {
+//		passenger_load = p;
+//
+//	}
+//	void show() {
+///*当然继承了，比如父类class person,子类class student
+//person 有一个私有成员name.student当然也有name了，
+//只不过不能访问。除非父类提供公有的get name/set name函数*/
+///*也可以用protected,子类既可以继承又可以使用*/
+//		cout << "车轮" << wheels << "个" << endl;
+//		cout << "重量" <<weight << "公斤" << endl;
+//		cout << "载人" << passenger_load << "位" << endl;
+//	}
+//};
+//class Truck : public Vehicle.virtual public Car {
+//	int passenger_load;
+//	int payload;
+//	void setpayload(int pl) {
+//		payload = pl;
+//
+//	}
+//};
+//int main() {
+//	Vehicle *p = new Vehicle;
+//	p->setwheels(10);
+//	p->setweight(20);
+//	p->show();
+//	Car *q = new Car;
+//	q->setwheels(7);
+//	q->setweight(7);
+//	q->setpassenger_load(1);
+//	q->show();
+//	Truck *r = new Truck;
+//	r->setwheels(8);
+//	r->setweight(8);
+//
+//	r->show();
+//	delete q;
+//	delete p;
+//	delete r;
+//	return 0;
+//
+//}
+
+
+/*2011 1 */
+
+//
+// int main () {
+//	int array[20];
+// 
+//	for (int i = 0; i < 20; i++) {
+//		cout << "please input the numbers:";
+//		cin >> array[i];
+//		 
+//	}//用过for循环输入20个数字到数组array中
+//	sort(array, array + 20);//, [](const int x1, const int x2) {return x1 < x2; }
+//	int index = 1;//索引
+//	int b[20],m;
+//	b[0] = array[0];
+//	
+//	m = array[0];
+//	for (int i = 1; i < 20; ++i) {
+//		if (array[i] != m) {//a1,a0如果不相同
+//			m = array[i];//m=a[1]
+//			b[index++] = array[i];//b[1]=a[1] 把a1放入b1中
+//		}
+//		else {
+//			continue;
+//		}
+//	}
+//	for (int i = 0; i < index; ++i) {
+//		cout << b[i] << " ";
+//	}
+//	cout << endl;
+//	return 0;
+//}  
+
+/*2012*/
+//#include <string>
+//using namespace std;
+//class Time {
+//private:
+//	
+//	int h;
+//	int m;
+//	int s;
+//public:
+//	Time(int hour=0, int minute=0, int second=0) :h(hour), m(minute), s(second) {
+//	}
+//	void sethour(int hour) { h = hour; }
+//	void setminute(int minute){}
+//	void setsecond(int second) { s = second; }
+//	int gethour() {
+//		return h;
+//
+//	}
+//	int getminuter() {
+//		return m;
+//	}	
+//	int getsecond() {
+//		return s;
+//	}
+//	void disp12() {
+//		string time;
+//		int h1;
+//		if (h > 12 && h != 24)
+//
+//		{
+//			h1 = h - 12;
+//			time = "PM";
+//		}
+//		else {
+//			h1 = h;
+//			time = "AM";
+//
+//		}
+//		if (h1 / 10 == 0) cout << '0' << h1 << ":";
+//		else cout << h1 << ':';
+//		if (m / 10 == 0) cout << '0' << m << ":";
+//		else cout <<m << ':';
+//		if (s / 10 == 0) cout << '0' <<s << ":";
+//		else cout << s << ':';
+//		cout << time << endl;
+//
+//
+//	}
+//};
+//int  main() {
+//	Time t1(13, 45, 12), t2(9, 30, 50);
+//	t1.disp12();
+//	t2.disp12();
+//	return 0;
+//}
+
+/*2012*/
+//
+//#include <fstream>
+//#include <string>
+//#include <vector>
+//#include <algorithm>
+//#include <iostream>
+//using namespace std;
+//
+//class Student
+//{
+//public:
+//	string name;
+//	double avg;
+//};
+//
+//vector<Student > students;  //存放学生的信息
+//
+//void Input()
+//{
+//	ifstream in("abc.txt");		//文件可以用绝对地址
+//	if (!in)					//如果找不到文件，就提醒
+//	{
+//		cout << "Can not find file abc.txt" << endl;
+//		return;
+//	}
+//	int numStu, numCourse;
+//	in >> numStu >> numCourse;
+//	for (int i = 0; i<numStu; i++)
+//	{
+//		Student stu;
+//		in >> stu.name;
+//		double sum = 0;
+//		for (int j = 0; j<numCourse; j++)
+//		{
+//			double score;
+//			in >> score;
+//			sum += score;
+//		}
+//		stu.avg = sum / numCourse;
+//		students.push_back(stu);         //存入数据
+//	}
+//}
+//
+//bool fun(Student a, Student b)
+//{
+//	return a.avg>b.avg;
+//}
+//
+//void Sort()
+//{
+//	sort(students.begin(), students.end(), fun);     //使用STL algorithm，也可以使用下面自己写的
+//			      //交换
+//							 /*
+//    //选择排序
+//    int numStu = students.size();
+//    for( int i=0; i<numStu; i++)
+//    {
+//        int max = i;
+//        //找到最大的，已平均值为关键字比较
+//        for( int j=i; j<numStu; j++)
+//        {
+//            if( students[j].avg > students[i].avg )
+//                max=j;
+//        }
+//        if( max != i )      //交换
+//        {
+//            Student temp;
+//            temp = students[i];
+//            students[i] = students[max];
+//            students[max] = temp;
+//        }
+//    }
+//    */	
+//}
+//
+//void Output()
+//{
+//	ofstream out("result.txt");
+//	for (int i = 0; i<(int)students.size(); i++)
+//	{
+//		out << i + 1 << " " << students[i].name << endl;
+//	}
+//}
+//
+//int main()
+//{
+//	Input();
+//	Sort();
+//	Output();
+//}
+//
+ 
+/*2017 -11*/
+#include<iostream>
+#include <string>
+/*2017*/
+//using namespace std;
+//
+//class School {
+//private:
+//	string id;
+//	string name;
+//	double cost;
+//public:
+//	School() {}
+///*	int getid()*/
+//	string getid(){
+//		return id;
+//	}
+//	void  putid(string  _id) {
+//		id = _id;
+//
+//	}
+//	string getname() {
+//		return name;
+//
+//	}
+//	void putname(string _name) {
+//		name = _name;
+//
+//	}
+//	double getcost() {
+//		return cost;
+//
+//	}
+//	void putcost(double _cost) {
+//		cost = _cost;
+//
+//	}
+//};
+//
+//#include<fstream>
+//#define NUM 5
+//	class MaxSchool {
+//	public:
+//		
+//		MaxSchool();
+//		School findMax();
+//		School schools[10];
+//	};
+//
+//	MaxSchool::MaxSchool() {
+//		ifstream infile("aa.txt");
+////infile的输入设备是指将文件中的内容输入程序中
+//		string str;//接收文件
+//		string str1[NUM * 3] = { "" };
+//		int i = 0;
+//		while (infile >> str) {
+//			//将文件输入到str中
+//			str1[i] = str;
+//			i++;
+//
+//		}
+//		for (int i = 0; i<15; i += 3) {
+//
+//			schools[i / 3].putid(str1[i]);
+//			schools[i / 3].putname(str1[i+1]);
+//			schools[i / 3].putcost(stod(str1[i+2]));
+//
+//
+//		}
+//}
+//	School MaxSchool::findMax() {
+//		int i;
+//		int max_school=0;
+//		for (int i = 0; i < NUM; i++)
+//
+//		{
+//			if (max_school < schools[i].getcost())
+//				max_school = i;
+//
+//		}
+//		return schools[max_school];
+//	}
+//	int main() {
+//		MaxSchool m;
+//		School s = m.findMax();
+//		cout << "花费最大的学校：" << endl;
+//		cout << "ID=" << s.getid() << endl;
+//		cout << "NAME=" << s.getname() << endl;
+//		cout << "COST=" << s.getcost() << endl;
+//		return 0;
+//	}
+//void swap3(int*a，int*b)
+//{
+//	int*temp = a;  a =b; &b = temp;
+//}
+//int swap(int *a, int *b) {
+//	int c = *a;
+//	*a = *b;
+//	*b = c;
+//	return 1;
+//}
+//int main() {
+//	int a = 3, b = 5;
+//	swap(&a, &b);
+//	cout << a << b;
+//	return 0;
+//}
+
+
+/*2012*/
+class Student {
+public:
+	string name;
+	int rank;
+	double avg;
+
+}
+void input() {
+	ifstream infile("abc.txt");
+	if
+}
+/*小试vector，对学生成绩按学科排序然后输出
+1. 我们的student是一个类，创建一个vector<student>接受数据
+2. 类中有一个身份id, 还有一个vector<course>保存course类对象3.course类是课程类，包括课程名和成绩。
+4. 我们根据course中的某个课程进行排序，交换vector<student>的两个元素
+5. 具体科目排序，未选课该课同学不输出对应信息
+
+输入的格式： 学生编号 学科 成绩 学科 成绩 .... - 1结束
+测试数据：
+101 数学 64 英语 45 语文 89 - 1
+102 语文 57 音乐 90 数学 77 - 1
+103 计算 88 数学 80 美术 77 - 1
+104 计算 80 数学 20 英语 99 - 1
+105 语文 57 英语 60 语文 78 美术 99 - 1
+106 语文 55 音乐 89 语文 99 - 1 - 1
+
+*/
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+class course;
+class student;
+/*
+typedef vector<course> vc;
+typedef vector<student> vs;
+*/
+class course {
+private:
+	string m_SName;	//课程名
+	int m_iScore;	//成绩
+public:
+	course(string name = "", int score = 0) :m_SName(name), m_iScore(score) {
+	}
+	string Get_Name() {
+		return m_SName;
+	}
+	int Get_Score() {
+		return m_iScore;
+	}
+};
+class student {
+private:
+	int m_iNum;		//学生编号
+	vector<course> m_vCs;
+public:
+	student(int num) :m_iNum(num) {
+	}
+	void Add(string name, int score) {		//录入学生成绩
+		course c1(name, score);
+		m_vCs.push_back(c1);
+	}
+	~student() {
+		m_vCs.~vector<course>();
+	}
+	vector<course> Get_CS() {
+		return m_vCs;
+	}
+	int Get_Num() {
+		return m_iNum;
+	}
+};
+
+string sort_name = "数学";		//排序方式
+
+								//根据课程名称查找成绩的值
+int Acc_Na_sear(student i_pX) {
+	vector<course> *vc = &i_pX.Get_CS();		//按vector<course> *vc = i_pX.Get_CS();这样的写法容器总是为空
+	vector<course>::iterator i_pC;
+	cout << "大小" << vc->size() << endl;
+	for (i_pC = vc->begin(); i_pC < vc->end(); i_pC++) {
+		if (i_pC->Get_Name() == sort_name)
+			return i_pC->Get_Score();
+	}
+	return -1;
+}
+//比较方式
+int cmp(vector<student>::iterator i_pX, vector<student>::iterator i_pY) {
+	int sc1 = Acc_Na_sear(*i_pX);
+	int sc2 = Acc_Na_sear(*i_pY);
+	if (sc1 == -1 || sc2 == -1)
+		return 0;
+	return sc1 > sc2;
+}
+//排序
+void Bubble(vector<student> *v_stu) {
+	if (NULL == v_stu)
+		return;
+	vector<student>::iterator i_pS;
+	vector<student>::iterator i_pS2;
+	for (i_pS = v_stu->begin(); i_pS < v_stu->end() - 1; i_pS++) {
+		for (i_pS2 = i_pS + 1; i_pS2 < v_stu->end(); i_pS2++) {
+			if (cmp(i_pS, i_pS2)) {
+				//cout<<"交换"<<endl;
+				swap(*i_pS, *i_pS2);
+			}
+		}
+	}
+}
+//根据student显示成绩
+void dis_cs(student stu) {
+	vector<course> vc = stu.Get_CS();
+	vector<course>::iterator i_sc;
+	for (i_sc = vc.begin(); i_sc < vc.end(); i_sc++) {
+		cout << " " << i_sc->Get_Name() << " " << i_sc->Get_Score();
+	}
+}
+//显示个人信息
+void display(vector<student> v_stu) {
+	vector<student>::iterator i_st;
+	for (i_st = v_stu.begin(); i_st < v_stu.end(); i_st++) {
+		if (Acc_Na_sear(*i_st) == -1)
+			continue;
+		cout << i_st->Get_Num() << " ";
+		dis_cs(*i_st);
+		cout << endl;
+	}
+}
+
+int main() {
+	//freopen("in.txt", "r",stdin);
+	int istu = 0;
+	vector<student> v_stu;
+	while (1) {		//输入每个人的信息，以-1为结束标志
+		cout << "输入第" << ++istu << "个学生信息" << endl;
+		int num, score;
+		string cs;
+		cin >> num;	//输入个人编号
+		if (num == -1)
+			break;
+		student stu1(num);
+		while (1) {	//不断输入成绩和成绩，以-1结束
+			cin >> cs;
+			if (cs == "-1")
+				break;
+			cin >> score;
+			stu1.Add(cs, score);
+		}
+		v_stu.push_back(stu1);
+	}
+	sort_name = "音乐";		//排序依据
+	Bubble(&v_stu);
+	display(v_stu);
+	return 0;
+}
